@@ -1,0 +1,46 @@
+NOTICE — attribution and scope
+==============================
+
+What this repository is
+-----------------------
+An independent research project: a set of Python scripts that read the data
+files shipped with the mobile game **Galaxy Legends** and republish the result as
+structured, machine-readable JSON and Markdown. Nothing here is affiliated with,
+endorsed by, or connected to the game's publisher.
+
+Third-party rights
+------------------
+* **Galaxy Legends** (also published as *Galaxy Empire 2*) is a game by
+  **Tap4Fun**. All game content — commander names, skill names and descriptions,
+  item names, artwork, and the data files themselves — remains the property of
+  Tap4Fun. This project claims no rights over any of it.
+* The localisation strings and numeric tables in `extracted/` are **derived
+  excerpts** of the game's own data, reproduced for the purpose of documentation,
+  commentary and research.
+
+What is deliberately NOT included
+---------------------------------
+* No game binary, APK, OBB, archive, image, audio or other asset is distributed
+  here. `data/` is gitignored and empty in every published commit.
+* No decryption key or circumvention tool for a copy-protection system is
+  included. The `.tfl` cipher documented in `docs/DATA_FORMATS.md` is described
+  because it is necessary to read the game's own localisation tables; anyone
+  wanting to reproduce this work must supply their own legally obtained game
+  files.
+
+Sources used for cross-checking
+-------------------------------
+* The game's own shipped localisation and data tables (game version **2.6.2**).
+* **galaxylegend.wiki** — the active community wiki, used to cross-check the
+  augmentation ladder, event cadence and gameplay vocabulary. Community-authored
+  and occasionally out of date; where it disagrees with the shipped files, the
+  shipped files are treated as authoritative and the difference is noted.
+
+Intended use
+------------
+Educational and research use: format reverse-engineering, data engineering, and
+giving language models accurate reference data about the game. Not intended to
+compete with or substitute for the game.
+
+If you are a rights holder and believe anything here should be removed, open an
+issue and it will be taken down.

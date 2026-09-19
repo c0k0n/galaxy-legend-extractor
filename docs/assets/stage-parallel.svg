@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 680 230" width="680" height="230"
+     font-family="ui-sans-serif,system-ui,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+  <title>Stages 1-4 run in parallel, then converge</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5b6478"/>
+    </marker>
+  </defs>
+
+  <rect width="680" height="230" fill="#0f1115"/>
+  <text x="24" y="26" fill="#e6e8ee" font-size="14" font-weight="600">Stages 1–4 are independent</text>
+  <text x="24" y="44" fill="#6b7488" font-size="11">Any order, at the same time. Stage 5 needs all four; 6 and 7 need 5.</text>
+
+  <!-- four parallel extract stages -->
+  <g>
+    <rect x="24" y="62"  width="196" height="34" rx="7" fill="#171a21" stroke="#7dd3fc" stroke-width="1.3"/>
+    <text x="40" y="83" fill="#e6e8ee" font-size="11.5">1 · extract_sss.py</text>
+
+    <rect x="24" y="104" width="196" height="34" rx="7" fill="#171a21" stroke="#7dd3fc" stroke-width="1.3"/>
+    <text x="40" y="125" fill="#e6e8ee" font-size="11.5">2 · decrypt_tfl.py</text>
+
+    <rect x="24" y="146" width="196" height="34" rx="7" fill="#171a21" stroke="#7dd3fc" stroke-width="1.3"/>
+    <text x="40" y="167" fill="#e6e8ee" font-size="11.5">3 · extract_tfl_data.py</text>
+
+    <rect x="24" y="188" width="196" height="34" rx="7" fill="#171a21" stroke="#7dd3fc" stroke-width="1.3"/>
+    <text x="40" y="209" fill="#e6e8ee" font-size="11.5">4 · extract_loc_tables.py</text>
+  </g>
+
+  <!-- converging -->
+  <g fill="none" stroke="#3a4252" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#arrow)">
+    <path id="c1" d="M220,79  C 300,79 300,125 372,125">
+      <animate attributeName="stroke-dashoffset" values="0;-22" dur="0.9s" repeatCount="indefinite"/>
+    </path>
+    <path id="c2" d="M220,121 L372,125">
+      <animate attributeName="stroke-dashoffset" values="0;-22" dur="0.9s" repeatCount="indefinite"/>
+    </path>
+    <path id="c3" d="M220,163 L372,127">
+      <animate attributeName="stroke-dashoffset" values="0;-22" dur="0.9s" repeatCount="indefinite"/>
+    </path>
+    <path id="c4" d="M220,205 C 300,205 300,127 372,127">
+      <animate attributeName="stroke-dashoffset" values="0;-22" dur="0.9s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- join -->
+  <rect x="374" y="104" width="168" height="42" rx="8" fill="#171a21" stroke="#fbbf24" stroke-width="1.6"/>
+  <text x="390" y="123" fill="#e6e8ee" font-size="12" font-weight="600">5 · build_sss_db.py</text>
+  <text x="390" y="139" fill="#98a1b3" font-size="10.5">needs all four</text>
+
+  <path id="c5" d="M542,125 L586,125" fill="none" stroke="#3a4252" stroke-width="1.5"
+        stroke-dasharray="6 5" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" values="0;-22" dur="0.9s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- tail -->
+  <rect x="588" y="82" width="72" height="30" rx="7" fill="#171a21" stroke="#4ade80" stroke-width="1.3"/>
+  <text x="624" y="101" fill="#e6e8ee" font-size="10.5" text-anchor="middle">6 · html</text>
+  <rect x="588" y="140" width="72" height="30" rx="7" fill="#171a21" stroke="#4ade80" stroke-width="1.3"/>
+  <text x="624" y="159" fill="#e6e8ee" font-size="10.5" text-anchor="middle">7 · md</text>
+
+  <g fill="none" stroke="#3a4252" stroke-width="1.4" marker-end="url(#arrow)">
+    <path d="M566,118 L586,100"/>
+    <path d="M566,132 L586,152"/>
+  </g>
+
+  <!-- pulses -->
+  <g>
+    <circle r="3.6" fill="#7dd3fc"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0s"><mpath xlink:href="#c1" href="#c1"/></animateMotion></circle>
+    <circle r="3.6" fill="#7dd3fc"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0.2s"><mpath xlink:href="#c2" href="#c2"/></animateMotion></circle>
+    <circle r="3.6" fill="#7dd3fc"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0.4s"><mpath xlink:href="#c3" href="#c3"/></animateMotion></circle>
+    <circle r="3.6" fill="#7dd3fc"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0.6s"><mpath xlink:href="#c4" href="#c4"/></animateMotion></circle>
+    <circle r="4" fill="#fbbf24"><animateMotion dur="1.2s" repeatCount="indefinite" begin="1.1s"><mpath xlink:href="#c5" href="#c5"/></animateMotion></circle>
+  </g>
+</svg>
